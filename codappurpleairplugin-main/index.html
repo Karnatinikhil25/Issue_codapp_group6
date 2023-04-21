@@ -38,11 +38,11 @@
 </head>
 <body  >
 
-<div class="container shadow mt-4">
+<div class="container mt-4">
 <!-- <form class="" id="pap_form" action="#"> -->
 
     <!-- city --> 
-    <div class="input-group mb-3 pt-3">        
+    <div class="input-group mb-3">        
         <i class="input-group-text bi bi-geo-alt-fill"></i>
         <input 
             id="city_input" 
@@ -80,7 +80,7 @@
     
     
     
-    
+    <!-- Radius -->
     <div class="input-group mt-2">
         <label for="radiusRange" class="input-group-text form-label mr-1">Radius Miles</label>
         <input  
@@ -98,9 +98,9 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-sm-3 mt-2 pl-0"><label  for="startDate" 
+            <div class="col"><label  for="startDate" 
                 class="input-group-text form-label mr-1">Start Date</label></div>
-            <div class="col-sm-5-auto  mt-2"><input 
+            <div class="col"><input 
             type="date" 
             id="startDate" 
             name="startDate"
@@ -112,9 +112,33 @@
             "
         ></div>
             <div class="w-100"></div>
-            <div class="col-sm-3 mt-2 pl-0"><label  for="endDate" 
-                class="input-group-text form-label mr-1">End Date</label></div>
-            <div class="col-sm-5-auto  mt-2"><input 
+            <div class="col">Column</div>
+            <div class="col">Column</div>
+        </div>
+    </div>
+    <!-- start date selection -->
+    <div class="input-group mt-2">
+        <label  for="startDate" 
+                class="input-group-text form-label mr-1">Start Date</label>
+        <input 
+            type="date" 
+            id="startDate" 
+            name="startDate"
+            value="" min="" max=""
+            onchange="
+            purple_air.state.startDate = this.value;
+            purple_air.hideError()
+            console.log('Start Date Updated ==> ' + this.value)
+            "
+        >
+        
+    </div>
+
+    <!-- end date selection -->
+    <div class="input-group mt-2">
+        <label  for="endDate" 
+                class="input-group-text form-label mr-1">End Date</label>
+        <input 
             type="date" 
             id="endDate" 
             name="endDate"    
@@ -125,11 +149,16 @@
             purple_air.hideError();
             console.log('End date updated ==> ' + this.value)
             "
-        ></div>
-            <div class="w-100"></div>
-                <div class="col-sm-3 mt-2 pl-0"><label for="minutes" 
-        class="input-group-text form-label mr-1">Averaging Minutes</label></div>
-                <div class="col-sm-5-auto mt-2"><select name="minutes" id="minutes" 
+        >
+        
+    </div>
+
+    <!-- averaging minutes selection -->
+    <div class="input-group mt-2">
+        <label for="minutes" 
+        class="input-group-text form-label mr-1">Averaging Minutes</label>
+
+        <select name="minutes" id="minutes" 
         onchange="
         purple_air.state.averaginMinutes = this.value; 
         purple_air.hideError(); 
@@ -143,10 +172,10 @@
             <option value="60">60 (1 hour)</option>
             <option value="360">360 (6 hour)</option>
             <option value="1440">1440 (1 day)</option>
-          </select></div>
-        </div>
-        </div>
-        <div class="d-flex justify-content-center mt-2 pb-3">
+          </select>
+    </div>
+
+    <div class="d-flex justify-content-center mt-2">
         <button id="reset" 
         onclick="purple_air.reset()"  
         class="btn btn-outline-danger mt-2 mr-2">Reset Form Data</button>
@@ -174,12 +203,6 @@
 
 
     <p id="msg" class="alert alert-danger mt-2" style="display: none;"></p>
-    </div>
-
-    <!-- averaging minutes selection -->
-    
-
-    
     <!-- </form> -->
 
     <!-- <button onclick="purple_air.disable_form_input()">Disable Form</button>
